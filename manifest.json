@@ -1,0 +1,17 @@
+{
+  "name": "MultiFlow Finanzas",
+  "short_name": "MultiFlow",
+  "description": "Aplicación para organizar finanzas de múltiples emprendimientos",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#8b5cf6",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
