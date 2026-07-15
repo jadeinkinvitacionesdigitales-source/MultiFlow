@@ -359,3 +359,79 @@ input:focus, select:focus {
     color: var(--danger);
     border-color: var(--danger);
 }
+
+/* 📱 Responsive Design (Mobile) */
+@media (max-width: 768px) {
+    .app-container {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        padding: 16px 20px;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        flex-shrink: 0;
+    }
+    
+    .logo {
+        margin-bottom: 16px;
+    }
+    
+    nav ul {
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: 8px; /* Espacio para el scroll */
+        -webkit-overflow-scrolling: touch; /* Scroll suave en iOS */
+    }
+    
+    nav li {
+        white-space: nowrap;
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+    
+    #add-business-btn {
+        margin-top: 16px;
+        padding: 8px;
+    }
+
+    .main-content {
+        padding: 20px;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        margin-bottom: 24px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    #new-transaction-btn {
+        width: 100%;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .stat-card {
+        padding: 16px;
+    }
+
+    .stat-card .amount {
+        font-size: 1.5rem;
+    }
+
+    .modal-content {
+        padding: 24px;
+        width: 90%;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+}
