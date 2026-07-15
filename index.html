@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MultiFlow - Finanzas Semanales</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                <h2>MultiFlow</h2>
+            </div>
+            <nav>
+                <ul id="business-list">
+                    <li class="active" data-id="all">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                        Vista General
+                    </li>
+                    <!-- Dynamic business list will go here -->
+                </ul>
+            </nav>
+            <button id="add-business-btn" class="btn-secondary mt-auto">
+                + Nuevo Negocio
+            </button>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header>
+                <div>
+                    <h1 id="current-view-title">Vista General</h1>
+                    <p class="subtitle">Tus finanzas consolidadas de esta semana</p>
+                </div>
+                <button id="new-transaction-btn" class="btn-primary">
+                    + Registrar Movimiento
+                </button>
+            </header>
+
+            <!-- Dashboard Stats -->
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <h3>Ingresos (Semana)</h3>
+                    <p class="amount text-success" id="stat-income">$0.00</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Gastos (Semana)</h3>
+                    <p class="amount text-danger" id="stat-expense">$0.00</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Balance Total</h3>
+                    <p class="amount" id="stat-balance">$0.00</p>
+                </div>
+            </section>
+
+            <!-- Transactions List -->
+            <section class="transactions-section">
+                <div class="section-header">
+                    <h2>Movimientos Recientes</h2>
+                </div>
+                <div class="transactions-list" id="transactions-list">
+                    <!-- Dynamic transactions -->
+                    <div class="empty-state">No hay movimientos esta semana.</div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal: New Transaction -->
+    <div id="transaction-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Nuevo Movimiento</h2>
+                <button class="close-btn" id="close-tx-modal">&times;</button>
+            </div>
+            <form id="transaction-form">
+                <div class="form-group">
+                    <label>Tipo</label>
+                    <div class="toggle-group">
+                        <input type="radio" id="type-income" name="type" value="income" checked>
+                        <label for="type-income" class="toggle-btn success">Ingreso</label>
+                        <input type="radio" id="type-expense" name="type" value="expense">
+                        <label for="type-expense" class="toggle-btn danger">Gasto</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="tx-amount">Monto ($)</label>
+                    <input type="number" id="tx-amount" step="0.01" required placeholder="0.00">
+                </div>
+                <div class="form-group">
+                    <label for="tx-desc">Descripción</label>
+                    <input type="text" id="tx-desc" required placeholder="Ej. Venta producto, Pago servidor...">
+                </div>
+                <div class="form-group">
+                    <label for="tx-business">Negocio / Emprendimiento</label>
+                    <select id="tx-business" required>
+                        <!-- Dynamic -->
+                    </select>
+                </div>
+                <button type="submit" class="btn-primary w-full">Guardar Movimiento</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal: New Business -->
+    <div id="business-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Agregar Negocio</h2>
+                <button class="close-btn" id="close-biz-modal">&times;</button>
+            </div>
+            <form id="business-form">
+                <div class="form-group">
+                    <label for="biz-name">Nombre del Emprendimiento</label>
+                    <input type="text" id="biz-name" required placeholder="Ej. Tienda Online">
+                </div>
+                <button type="submit" class="btn-primary w-full">Crear Negocio</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
