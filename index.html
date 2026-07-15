@@ -12,10 +12,24 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Mobile Top Header -->
+    <div class="mobile-header">
+        <div class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            <h2>MultiFlow</h2>
+        </div>
+        <button id="hamburger-btn" class="hamburger-btn">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+        </button>
+    </div>
+
     <div class="app-container">
+        <!-- Sidebar Overlay for Mobile -->
+        <div id="sidebar-overlay" class="sidebar-overlay"></div>
+        
         <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="logo">
+        <aside id="sidebar" class="sidebar">
+            <div class="logo desktop-logo">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
                 <h2>MultiFlow</h2>
             </div>
@@ -25,7 +39,6 @@
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
                         Vista General
                     </li>
-                    <!-- Dynamic business list will go here -->
                 </ul>
             </nav>
             <button id="add-business-btn" class="btn-secondary mt-auto">
@@ -67,14 +80,13 @@
                     <h2>Movimientos Recientes</h2>
                 </div>
                 <div class="transactions-list" id="transactions-list">
-                    <!-- Dynamic transactions -->
                     <div class="empty-state">No hay movimientos esta semana.</div>
                 </div>
             </section>
         </main>
     </div>
 
-    <!-- Modal: New Transaction -->
+    <!-- Modals -->
     <div id="transaction-modal" class="modal hidden">
         <div class="modal-content">
             <div class="modal-header">
@@ -97,20 +109,17 @@
                 </div>
                 <div class="form-group">
                     <label for="tx-desc">Descripción</label>
-                    <input type="text" id="tx-desc" required placeholder="Ej. Venta producto, Pago servidor...">
+                    <input type="text" id="tx-desc" required placeholder="Ej. Venta producto...">
                 </div>
                 <div class="form-group">
                     <label for="tx-business">Negocio / Emprendimiento</label>
-                    <select id="tx-business" required>
-                        <!-- Dynamic -->
-                    </select>
+                    <select id="tx-business" required></select>
                 </div>
                 <button type="submit" class="btn-primary w-full">Guardar Movimiento</button>
             </form>
         </div>
     </div>
 
-    <!-- Modal: New Business -->
     <div id="business-modal" class="modal hidden">
         <div class="modal-content">
             <div class="modal-header">

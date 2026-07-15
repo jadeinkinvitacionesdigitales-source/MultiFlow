@@ -1,4 +1,4 @@
-const CACHE_NAME = 'multiflow-v2';
+const CACHE_NAME = 'multiflow-v3';
 const urlsToCache = [
   './',
   './index.html',
